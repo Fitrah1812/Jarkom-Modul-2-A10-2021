@@ -10,9 +10,9 @@ Berikut tata cara pembuatan node skypie yang terbaru, dengan cara
   ```
   auto eth0
   iface eth0 inet static
-	    address [Prefix IP].1.3
+	    address 10.4.1.4
 	    netmask 255.255.255.0
-	    gateway [Prefix IP].1.1
+	    gateway 10.4.1.1
   ```
 * Refresh nodenya
 
@@ -27,70 +27,131 @@ Selanjutnya berikut script yang saya gunakan untuk membuat semuanya terhubung de
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Config.jpeg)
 
-Selanjutnya kita testing Ping google.com
+Selanjutnya kita testing Ping google.com di client kita
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Ping.jpeg)
 
 ## Nomor 2
 Pertanyaan: Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses **franky.yyy.com** dengan alias **www.franky.yyy.com** pada folder **kaizoku**
 
+Pertama yang perlu kita lakukan adalah sebagai berikut 
+* Membuat folder kaizoku di /etc/bind
+* Copy dengan command berikut
+  ```
+  cp /etc/bind/db.local /etc/bind/kaizoku/franky.A10.com
+  ```
+* Setelah itu lakukan config seperti dibawah ini
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/Config.jpeg)
 
+* Setelah itu lakukan config di named.conf.local. Seperti dibawah ini
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/Zone.jpeg)
 
+* Setelah itu restart dan lakukan ping seperti dibawah ini
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/ping.jpeg)
 
 ## Nomor 3
 Pertanyaan: Setelah itu buat subdomain **super.franky.yyy.com** dengan alias **www.super.franky.yyy.com** yang diatur DNS nya di EniesLobby dan mengarah ke Skypie
 
+Hal ini berkaitan seperti nomor dua untuk konfigurasinya. Dilakukan konfigurasi sebagai berikut :
+
+* Menambahkan alias dan subdomain super.franky.A10.com
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No3/Config.jpeg)
 
+* Restart Bind9 di Enieslobby
+  ```
+  service bind9 restart
+  ```
+* Lakukan ping
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No3/ping.jpeg)
 
 ## Nomor 4
 Pertanyaan: Buat juga reverse domain untuk domain utama
 
+Untuk membuat reverse domain kita memerlukan tambahan Zone Baru :
+
+* Menambahkan Zone baru seperti dibawah ini sesuai dengan reversi Ip kita
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/Zone.jpeg)
 
+* Melakukan konfigurasi dengan cara membuat nama file 2.4.10.in-addr.arpa dan isinya dicopy dari /etc/bind/local
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/config.jpeg)
 
+* Restart Bind9 di Enieslobby
+  ```
+  service bind9 restart
+  ```
+  
+* Lakukan perintah ``` host -t PTR 10.4.2.2 ```
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/host.jpeg)
 
 ## Nomor 5
 Pertanyaan: Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 sebagai DNS Slave untuk domain utama
 
+Hal yang perlu dilakukan adalah sebagai berikut :
+
+* Menambahkan allow-transfer dan also notify ke ip water7 
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/Zone.jpeg)
 
+* Melakukan config named.conf.local di water7 seperti dibawah ini dengan type slave
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/Zone2.jpeg)
 
+* Kita coba testing mematikan server enieslobby
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/stopenieslobby.jpeg)
 
+* Kita coba lakukan ping dan ternyata bisa sehingga apabila server enies lobby mati maka akan digantikan oleh water 7
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/pingfranky.jpeg)
 
 ## Nomor 6
 Pertanyaan: Setelah itu terdapat subdomain **mecha.franky.yyy.com** dengan alias **www.mecha.franky.yyy.com** yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder **sunnygo**
 
+Hal yang perlu dilakukan adalah sebagai berikut
+
+* Menambahkan NS untuk mecha yang diarahkan ke IP water7
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/Config.jpeg)
 
+* Membuat folder sunnygo di /etc/bind
+* Membuat file di folder sunnygo yang sudah dibuat sebelumnya dengan nama mecha.franky.A10.com dan lakukan copy config dari /etc/bind/db.local
+* Lakukan config seperti dibawah
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/configwater7.jpeg)
 
+* Restart Bind9 di Enieslobby dan Water7
+  ```
+  service bind9 restart
+  ```
+  
+* Lakukan ping
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/pingmecha.jpeg)
 
 ## Nomor 7
 Pertanyaan: Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama **general.mecha.franky.yyy.com** dengan alias **www.general.mecha.franky.yyy.com** yang mengarah ke Skypie
 
+Hal yang perlu dilakukan adalah sebagai berikut
+
+* Membuat file di folder sunnygo yang sudah dibuat sebelumnya dengan nama general.mecha.franky.A10.com dan lakukan copy config dari /etc/bind/db.local
+* Lakukan config seperti dibawah ini
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No7/config.jpeg)
 
+* Restart Bind9 di Enieslobby dan Water7
+  ```
+  service bind9 restart
+  ```
+  
+* Lakukan ping
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No7/ping.jpeg)
 
