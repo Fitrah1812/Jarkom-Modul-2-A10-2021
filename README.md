@@ -3,11 +3,31 @@
 ## Nomor 1
 Pertanyaan: Semua node terhubung pada router Foosha, sehingga dapat mengakses internet
 
+Berikut tata cara pembuatan node skypie yang terbaru, dengan cara 
+
+* Buat Node Baru yang bernama dengan skypie 
+* Isi dengan config berikut 
+  ```
+  auto eth0
+  iface eth0 inet static
+	    address [Prefix IP].1.3
+	    netmask 255.255.255.0
+	    gateway [Prefix IP].1.1
+  ```
+* Refresh nodenya
+
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Topologi.jpeg)
+
+
+Selanjutnya berikut script yang saya gunakan untuk membuat semuanya terhubung dengan foosha. Setelah itu mengganti semua nameserver di client menjadi IP Foosha
+```
+  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.4.0.0/16
+```
 
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Config.jpeg)
 
+Selanjutnya kita testing Ping google.com
 
 ![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Ping.jpeg)
 
