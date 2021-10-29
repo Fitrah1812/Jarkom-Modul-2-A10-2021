@@ -3,23 +3,76 @@
 ## Nomor 1
 Pertanyaan: Semua node terhubung pada router Foosha, sehingga dapat mengakses internet
 
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Topologi.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No1/Ping.jpeg)
+
 ## Nomor 2
 Pertanyaan: Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses **franky.yyy.com** dengan alias **www.franky.yyy.com** pada folder **kaizoku**
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/Config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/Zone.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No2/ping.jpeg)
 
 ## Nomor 3
 Pertanyaan: Setelah itu buat subdomain **super.franky.yyy.com** dengan alias **www.super.franky.yyy.com** yang diatur DNS nya di EniesLobby dan mengarah ke Skypie
 
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No3/Config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No3/ping.jpeg)
+
 ## Nomor 4
 Pertanyaan: Buat juga reverse domain untuk domain utama
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/Zone.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No4/host.jpeg)
 
 ## Nomor 5
 Pertanyaan: Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 sebagai DNS Slave untuk domain utama
 
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/Zone.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/Zone2.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/stopenieslobby.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No5/pingfranky.jpeg)
+
 ## Nomor 6
 Pertanyaan: Setelah itu terdapat subdomain **mecha.franky.yyy.com** dengan alias **www.mecha.franky.yyy.com** yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder **sunnygo**
 
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/Config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/configwater7.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No6/pingmecha.jpeg)
+
 ## Nomor 7
 Pertanyaan: Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama **general.mecha.franky.yyy.com** dengan alias **www.general.mecha.franky.yyy.com** yang mengarah ke Skypie
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No7/config.jpeg)
+
+
+![image](https://github.com/Fitrah1812/Jarkom-Modul-2-A10-2021/blob/main/Config/No7/ping.jpeg)
 
 ## Nomor 8
 Pertanyaan: Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver **www.franky.yyy.com**. Pertama, luffy membutuhkan webserver dengan DocumentRoot pada **/var/www/franky.yyy.com**.
