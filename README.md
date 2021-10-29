@@ -112,7 +112,7 @@ Pertanyaan: Setelah itu, pada subdomain **www.super.franky.yyy.com**, Luffy memb
   ```cp -RT /var/www/super.franky /var/www/super.franky.a10.com```  
 * Akses super.franky.A10.com  
   ```lynx super.franky.A10.com```  
-  ![lynx10](https://imgur.com/undefined.png)
+  ![lynx10](https://imgur.com/8WFbS5o.png)
 
 
 ## Nomor 11
@@ -128,7 +128,7 @@ Pertanyaan: Akan tetapi, pada folder **/public**, Luffy ingin hanya dapat melaku
           Options +Indexes
   </Directory>
   ```
-  ![configno11](https://imgur.com/undefined.png)
+  ![configno11](https://imgur.com/Z3MUNLo.png)
 * Restart apache  
   ```service apache2 restart```  
 * Akses super.franky.A10.com/public  
@@ -152,7 +152,7 @@ Pertanyaan: Tidak hanya itu, Luffy juga menyiapkan **error file 404.html** pada 
   ```service apache2 restart```  
 * Akses super.franky.A10.com/publikkk  
   ```lynx super.franky.A10.com/publikkk```  
-  ![lynx12](https://imgur.com/undefined.png)
+  ![lynx12](https://imgur.com/9IxX6KZ.png)
 
 
 ## Nomor 13
