@@ -54,7 +54,7 @@ Pertanyaan: Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Web
   ```cp -RT /var/www/franky /var/www/franky.a10.com```  
 * Akses franky.A10.com  
   ```lynx franky.A10.com```  
-  ![lynx8]()
+  ![lynx8](https://imgur.com/9GSzQTc.png)
 
 
 ## Nomor 9
@@ -71,12 +71,12 @@ Pertanyaan: Setelah itu, Luffy juga membutuhkan agar url **www.franky.yyy.com/in
   </Directory>
   Alias "/home" "/var/www/franky.a10.com/index.php/home"
   ```
-  ![configno9]()
+  ![configno9](https://imgur.com/EcwAqWE.png)
 * Restart apache  
   ```service apache2 restart```  
 * Akses franky.A10.com/home  
   ```lynx franky.A10.com/home```  
-  ![lynx9]()
+  ![lynx9](https://imgur.com/7CmNNdR.png)
 
 
 ## Nomor 10
@@ -101,7 +101,7 @@ Pertanyaan: Setelah itu, pada subdomain **www.super.franky.yyy.com**, Luffy memb
      ServerAdmin webmaster@localhost
      DocumentRoot /var/www/super.franky.a10.com
      ```
-     ![configno10]()
+     ![configno10](https://imgur.com/mRkntuo.png)
 * Aktifkan config website yang telah dibuat  
   ```a2ensite www.super.franky.A10.com.conf```  
 * Restart apache  
@@ -112,7 +112,7 @@ Pertanyaan: Setelah itu, pada subdomain **www.super.franky.yyy.com**, Luffy memb
   ```cp -RT /var/www/super.franky /var/www/super.franky.a10.com```  
 * Akses super.franky.A10.com  
   ```lynx super.franky.A10.com```  
-  ![lynx10]()
+  ![lynx10](https://imgur.com/undefined.png)
 
 
 ## Nomor 11
@@ -128,12 +128,12 @@ Pertanyaan: Akan tetapi, pada folder **/public**, Luffy ingin hanya dapat melaku
           Options +Indexes
   </Directory>
   ```
-  ![configno11]()
+  ![configno11](https://imgur.com/undefined.png)
 * Restart apache  
   ```service apache2 restart```  
 * Akses super.franky.A10.com/public  
   ```lynx super.franky.A10.com/public```  
-  ![lynx11]()
+  ![lynx11](https://imgur.com/CKLxK5o.png)
 
 
 ## Nomor 12
@@ -147,12 +147,12 @@ Pertanyaan: Tidak hanya itu, Luffy juga menyiapkan **error file 404.html** pada 
   ```
   ErrorDocument 404 /error/404.html
   ```
-  ![configno12]()
+  ![configno12](https://imgur.com/nmWhf8a.png)
 * Restart apache  
   ```service apache2 restart```  
 * Akses super.franky.A10.com/publikkk  
   ```lynx super.franky.A10.com/publikkk```  
-  ![lynx11]()
+  ![lynx12](https://imgur.com/undefined.png)
 
 
 ## Nomor 13
